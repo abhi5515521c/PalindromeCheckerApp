@@ -1,29 +1,25 @@
-public class PalindromeCheckerApp {
+public class UseCase10PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "madam";
+        String input = "A man a plan a canal Panama";
 
-        boolean isPalindrome = check(input, 0, input.length() - 1);
+        // Step 1: Normalize string
+        String normalized = input.replaceAll("[^a-zA-Z]", "").toLowerCase();
 
+        boolean isPalindrome = true;
+
+        // Step 2: Compare characters from both ends
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) !=
+                    normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        // Output result
         System.out.println("Input : " + input);
         System.out.println("Is Palindrome? : " + isPalindrome);
-    }
-
-    // Recursive method
-    private static boolean check(String s, int start, int end) {
-
-        // Base condition: If start >= end, all characters matched
-        if (start >= end) {
-            return true;
-        }
-
-        // If mismatch found
-        if (s.charAt(start) != s.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call moving inward
-        return check(s, start + 1, end - 1);
     }
 }
