@@ -1,22 +1,27 @@
 public class PalindromeCheckerApp {
 
-    public static void main(String[] args) {git branch
-        // UC2: Hardcoded Palindrome Result
-        String input = "madam";  // hardcoded
-        boolean isPalindrome = true;
+    public static void main(String[] args) {
 
-        for (int i = 0; i < input.length() / 2; i++) {
-            if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                isPalindrome = false;
-                break;
-            }
+        // Original string
+        String original = "madam";
+
+        // Variable to store reversed string
+        String reversed = "";
+
+        // Reverse string using for loop
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed = reversed + original.charAt(i);
         }
 
-        System.out.println("Word to check: " + input);
-        if (isPalindrome) {
-            System.out.println("Result: It is a Palindrome.");
+        // Display reversed string
+        System.out.println("Original String : " + original);
+        System.out.println("Reversed String : " + reversed);
+
+        // Compare using equals() method
+        if (original.equals(reversed)) {
+            System.out.println("Result: The string is a palindrome.");
         } else {
-            System.out.println("Result: It is NOT a Palindrome.");
+            System.out.println("Result: The string is NOT a palindrome.");
         }
     }
 }
